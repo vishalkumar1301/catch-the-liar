@@ -1,11 +1,11 @@
 'use client';
 
-import TweetList from '@/components/TweetList';
+import AllTweetsList from '@/components/AllTweetsList';
 
 export default function TweetsPage() {
   return (
     <div className="container mx-auto py-8">
-      <TweetList />
+      <AllTweetsList />
     </div>
   );
 } 

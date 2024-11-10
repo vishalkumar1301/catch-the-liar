@@ -7,7 +7,7 @@ import { ITweet } from '@/models/Tweet';
 import { RefreshCcw } from 'lucide-react';
 import LierTweetsList from './LierTweetsList';
 
-export default function TweetList() {
+export default function AllTweetsList() {
     const [tweets, setTweets] = useState<ITweet[]>([]);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
