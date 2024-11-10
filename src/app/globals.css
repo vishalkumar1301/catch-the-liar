@@ -70,3 +70,12 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+/* Add these styles for better Twitter embed handling */
+.twitter-tweet {
+  margin: 0 auto;
+}
+
+.twitter-tweet-rendered {
+  margin: 0 auto;
+}

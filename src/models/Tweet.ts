@@ -17,10 +17,13 @@ const TweetSchema: Schema = new Schema(
   {
     tweetUrl: { 
       type: String, 
-      required: true, 
+      required: true,
       unique: true,
       trim: true,
-      match: [/^https:\/\/twitter\.com\/\w+\/status\/\d+$/, 'Invalid Twitter URL format']
+      match: [
+        /^https:\/\/(twitter\.com|x\.com)\/\w+\/status\/\d+$/,
+        'Invalid Twitter/X URL format. URL must be like https://twitter.com/user/status/123 or https://x.com/user/status/123'
+      ]
     },
     personName: { 
       type: String, 

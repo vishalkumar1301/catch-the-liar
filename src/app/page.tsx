@@ -1,21 +1,32 @@
 'use client';
 
-import { useEffect } from "react";
+import Link from 'next/link';
+import DemoButtonClickTweetSaveToMongoDB from '@/components/DemoButtonClickTweetSaveToMongoDB';
 
 export default function Home() {
-  useEffect(() => {
-    const script = document.createElement("script");
-    script.src = "https://platform.twitter.com/widgets.js";
-    script.async = true;
-    script.charset = "utf-8";
-    document.body.appendChild(script);
-  }, []);
-
   return (
-    <div
-      dangerouslySetInnerHTML={{
-        __html: `<blockquote class="twitter-tweet"><p lang="en" dir="ltr">M4 Mac Mini AI Cluster<br><br>Uses <a href="https://twitter.com/exolabs?ref_src=twsrc%5Etfw">@exolabs</a> with Thunderbolt 5 interconnect (80Gbps) to run LLMs distributed across 4 M4 Pro Mac Minis.<br><br>The cluster is small (iPhone for reference). It’s running Nemotron 70B at 8 tok/sec and scales to Llama 405B (benchmarks soon). <a href="https://t.co/9fx39IP4ZZ">pic.twitter.com/9fx39IP4ZZ</a></p>&mdash; Alex Cheema - e/acc (@alexocheema) <a href="https://twitter.com/alexocheema/status/1855238474917441972?ref_src=twsrc%5Etfw">November 9, 2024</a></blockquote>`,
-      }}
-    />
+    <div className="container mx-auto py-8">
+      <nav className="mb-8 flex gap-4">
+        <Link 
+          href="/submit" 
+          className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+        >
+          Submit New Tweet
+        </Link>
+        <Link 
+          href="/tweets" 
+          className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+        >
+          View All Tweets
+        </Link>
+      </nav>
+      
+      <div className="space-y-8">
+        <div>
+          <h1 className="text-2xl font-bold mb-6">Demo Tweet Submission</h1>
+          <DemoButtonClickTweetSaveToMongoDB />
+        </div>
+      </div>
+    </div>
   );
 }
