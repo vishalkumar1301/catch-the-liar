@@ -16,6 +16,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
+import PersonNameSearch from '@/components/PersonNameSearch';
 
 interface TweetFormData {
   tweetUrl: string;
@@ -116,7 +117,7 @@ export default function TweetForm() {
       <form onSubmit={handleSubmit}>
         <CardContent className="space-y-4">
           <div className="space-y-2">
-            <Label htmlFor="tweetUrl">Tweet URL *</Label>
+            <Label htmlFor="tweetUrl">Tweet URL that exposes the liar *</Label>
             <Input
               id="tweetUrl"
               name="tweetUrl"
@@ -128,19 +129,17 @@ export default function TweetForm() {
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="personName">Person Name *</Label>
-            <Input
-              id="personName"
-              name="personName"
+            <Label htmlFor="personName">Who's Lying? (Person Name) *</Label>
+            <PersonNameSearch
               value={formData.personName}
-              onChange={handleChange}
+              onChange={(value) => setFormData(prev => ({ ...prev, personName: value }))}
               placeholder="John Doe"
               required
             />
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="twitterHandle">Twitter Handle</Label>
+            <Label htmlFor="twitterHandle">Twitter Handler of the Lier (optional)</Label>
             <Input
               id="twitterHandle"
               name="twitterHandle"
@@ -151,7 +150,7 @@ export default function TweetForm() {
           </div>
 
           <div className="space-y-2">
-            <Label>Date Posted</Label>
+            <Label>Date when they lied (optional)</Label>
             <Popover>
               <PopoverTrigger asChild>
                 <Button
