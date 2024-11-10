@@ -40,10 +40,36 @@ export default function TweetForm() {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
+    
+    if (name === 'twitterHandle') {
+      // Allow empty value or single @
+      if (value === '' || value === '@') {
+        setFormData(prev => ({
+          ...prev,
+          [name]: ''
+        }));
+        return;
+      }
+
+      // Handle Twitter handle with content
+      let formattedValue = value;
+      if (!value.startsWith('@')) {
+        formattedValue = `@${value}`;
+      }
+      // Remove any additional @ symbols after the first one
+      formattedValue = '@' + formattedValue.replace(/@/g, '');
+      
+      setFormData(prev => ({
+        ...prev,
+        [name]: formattedValue
+      }));
+    } else {
+      // Handle other fields normally
+      setFormData(prev => ({
+        ...prev,
+        [name]: value
+      }));
+    }
   };
 
   const handleDateChange = (date: Date | undefined) => {
