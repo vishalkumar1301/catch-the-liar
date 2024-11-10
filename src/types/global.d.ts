@@ -6,6 +6,7 @@ declare global {
       widgets: {
         load: () => void;
       };
+      _e?: Array<() => void>;
     };
   }
 } 

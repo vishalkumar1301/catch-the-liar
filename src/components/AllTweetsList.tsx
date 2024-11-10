@@ -24,8 +24,9 @@ export default function AllTweetsList() {
             }
 
             setTweets(data);
-        } catch (error: any) {
-            setError(error.message);
+        } catch (error: unknown) {
+            const errorMessage = error instanceof Error ? error.message : 'Failed to fetch tweets';
+            setError(errorMessage);
             console.error('Error fetching tweets:', error);
         } finally {
             setIsLoading(false);

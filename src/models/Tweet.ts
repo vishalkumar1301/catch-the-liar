@@ -3,6 +3,7 @@ import mongoose, { Document, Model, Schema } from "mongoose";
 
 // 1. Define an interface representing a document in MongoDB.
 export interface ITweet extends Document {
+  _id: string;
   tweetUrl: string;
   personName: string;
   twitterHandle?: string;

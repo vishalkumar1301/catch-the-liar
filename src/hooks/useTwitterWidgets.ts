@@ -1,24 +1,21 @@
-
-import { useEffect } from "react";
+import { useEffect } from 'react';
 
 export default function useTwitterWidgets() {
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      if (!("twttr" in window)) {
-        const script = document.createElement("script");
-        script.src = "https://platform.twitter.com/widgets.js";
+    if (typeof window !== 'undefined') {
+      if (!window.twttr) {
+        const script = document.createElement('script');
+        script.src = 'https://platform.twitter.com/widgets.js';
         script.async = true;
-        document.body.appendChild(script);
-
+        
         script.onload = () => {
-          // @ts-ignore
           if (window.twttr) {
-            // @ts-ignore
             window.twttr.widgets.load();
           }
         };
+
+        document.body.appendChild(script);
       } else {
-        // @ts-ignore
         window.twttr.widgets.load();
       }
     }

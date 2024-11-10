@@ -1,4 +1,5 @@
 // lib/validation.ts
+import { ITweet } from '@/models/Tweet';
 import * as yup from 'yup';
 
 export const tweetSchema = yup.object().shape({
@@ -15,6 +16,6 @@ export const tweetSchema = yup.object().shape({
   context: yup.string().optional(),
 });
 
-export const validateTweet = async (data: any) => {
+export const validateTweet = async (data: Partial<ITweet>) => {
   return await tweetSchema.validate(data, { abortEarly: false });
 };

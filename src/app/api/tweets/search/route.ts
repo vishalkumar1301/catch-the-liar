@@ -17,7 +17,8 @@ export async function GET(request: Request) {
     });
 
     return NextResponse.json(uniqueNames, { status: 200 });
-  } catch (error) {
+  } catch (error: unknown) {
+    console.error('Search failed:', error);
     return NextResponse.json({ error: 'Search failed' }, { status: 500 });
   }
 } 

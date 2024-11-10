@@ -5,7 +5,6 @@ import { useState, useEffect } from 'react';
 import { ITweet } from '@/models/Tweet';
 import LierTweetsList from '@/components/LierTweetsList';
 import { Card, CardContent } from "@/components/ui/card";
-import Link from 'next/link';
 
 export default function PersonTweetsPage() {
   const params = useParams();
@@ -25,8 +24,9 @@ export default function PersonTweetsPage() {
         }
 
         setTweets(data);
-      } catch (error: any) {
-        setError(error.message);
+      } catch (error: unknown) {
+        const errorMessage = error instanceof Error ? error.message : 'Failed to fetch tweets';
+        setError(errorMessage);
       } finally {
         setIsLoading(false);
       }

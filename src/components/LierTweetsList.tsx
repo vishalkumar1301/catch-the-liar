@@ -7,12 +7,12 @@ interface LierTweetsListProps {
   tweets: ITweet[];
 }
 
+
 export default function LierTweetsList({ tweets }: LierTweetsListProps) {
   useTwitterWidgets();
 
   useEffect(() => {
     if (typeof window !== 'undefined' && ('twttr' in window)) {
-      // @ts-ignore
       window.twttr.widgets.load();
     }
   }, [tweets]);

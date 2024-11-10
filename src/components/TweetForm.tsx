@@ -101,8 +101,9 @@ export default function TweetForm() {
 
       setFormData(initialFormData);
       alert('Tweet saved successfully!');
-    } catch (error: any) {
-      setError(error.message);
+    } catch (error: unknown) {
+      const errorMessage = error instanceof Error ? error.message : 'Failed to save tweet';
+      setError(errorMessage);
       console.error('Error saving tweet:', error);
     } finally {
       setIsSaving(false);
@@ -129,7 +130,7 @@ export default function TweetForm() {
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="personName">Who's Lying? (Person Name) *</Label>
+            <Label htmlFor="personName">Who&apos;s Lying? (Person Name) *</Label>
             <PersonNameSearch
               value={formData.personName}
               onChange={(value) => setFormData(prev => ({ ...prev, personName: value }))}

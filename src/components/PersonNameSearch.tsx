@@ -56,8 +56,9 @@ export default function PersonNameSearch({
 
       setSuggestions(data);
       setShowSuggestions(true);
-    } catch (error: any) {
-      setError(error.message);
+    } catch (error: unknown) {
+      const errorMessage = error instanceof Error ? error.message : 'Search failed';
+      setError(errorMessage);
       console.error('Search error:', error);
       setSuggestions([]);
     } finally {
