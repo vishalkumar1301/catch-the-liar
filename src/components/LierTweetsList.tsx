@@ -1,11 +1,22 @@
+import { useEffect } from 'react';
 import { ITweet } from '@/models/Tweet';
 import LierTweet from './LierTweet';
+import useTwitterWidgets from '@/hooks/useTwitterWidgets';
 
 interface LierTweetsListProps {
   tweets: ITweet[];
 }
 
 export default function LierTweetsList({ tweets }: LierTweetsListProps) {
+  useTwitterWidgets();
+
+  useEffect(() => {
+    if (typeof window !== 'undefined' && ('twttr' in window)) {
+      // @ts-ignore
+      window.twttr.widgets.load();
+    }
+  }, [tweets]);
+
   if (tweets.length === 0) {
     return null;
   }

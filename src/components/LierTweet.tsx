@@ -3,7 +3,6 @@ import { Badge } from "@/components/ui/badge";
 import { Calendar, Link, MessageCircle } from 'lucide-react';
 import { format } from 'date-fns';
 import { ITweet } from '@/models/Tweet';
-import { useEffect } from 'react';
 
 interface LierTweetProps {
 	tweet: ITweet;
@@ -13,14 +12,6 @@ export default function LierTweet({ tweet }: LierTweetProps) {
 	const normalizeTweetUrl = (url: string) => {
 		return url.replace('x.com', 'twitter.com');
 	};
-
-	useEffect(() => {
-		// @ts-ignore
-		if (window.twttr) {
-			// @ts-ignore
-			window.twttr.widgets.load();
-		}
-	}, [tweet.tweetUrl]);
 
 	return (
 		<Card className="w-full max-w-xl transform transition-all duration-300 hover:shadow-lg">
@@ -50,15 +41,9 @@ export default function LierTweet({ tweet }: LierTweetProps) {
 			</CardHeader>
 
 			<CardContent className="space-y-6 pt-6">
-				<div
-					dangerouslySetInnerHTML={{
-						__html: `
-							<blockquote class="twitter-tweet" data-dnt="true">
-								<a href="${normalizeTweetUrl(tweet.tweetUrl)}"></a>
-							</blockquote>
-						`
-					}}
-				/>
+				<blockquote className="twitter-tweet" data-dnt="true">
+					<a href={normalizeTweetUrl(tweet.tweetUrl)}></a>
+				</blockquote>
 
 				{tweet.context && (
 					<div className="p-4 rounded-lg bg-blue-50 border border-blue-100">
