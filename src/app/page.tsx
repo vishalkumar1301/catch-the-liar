@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import DemoButtonClickTweetSaveToMongoDB from '@/components/DemoButtonClickTweetSaveToMongoDB';
+import TweetSearch from '@/components/TweetSearch';
 
 export default function Home() {
   return (
@@ -21,9 +22,14 @@ export default function Home() {
         </Link>
       </nav>
       
-      <div className="space-y-8">
+      <div className="space-y-12">
+        <div className="space-y-8">
+          <h1 className="text-2xl font-bold">Search Tweets</h1>
+          <TweetSearch />
+        </div>
+
         <div>
-          <h1 className="text-2xl font-bold mb-6">Demo Tweet Submission</h1>
+          <h2 className="text-2xl font-bold mb-6">Demo Tweet Submission</h2>
           <DemoButtonClickTweetSaveToMongoDB />
         </div>
       </div>

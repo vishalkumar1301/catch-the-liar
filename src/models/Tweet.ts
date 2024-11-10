@@ -15,33 +15,33 @@ export interface ITweet extends Document {
 // 2. Create a Schema corresponding to the document interface.
 const TweetSchema: Schema = new Schema(
   {
-    tweetUrl: { 
-      type: String, 
+    tweetUrl: {
+      type: String,
       required: true,
       unique: true,
       trim: true,
       match: [
         /^https:\/\/(twitter\.com|x\.com)\/\w+\/status\/\d+$/,
-        'Invalid Twitter/X URL format. URL must be like https://twitter.com/user/status/123 or https://x.com/user/status/123'
-      ]
+        "Invalid Twitter/X URL format. URL must be like https://twitter.com/user/status/123 or https://x.com/user/status/123",
+      ],
     },
-    personName: { 
-      type: String, 
-      required: true, 
+    personName: {
+      type: String,
+      required: true,
       trim: true,
-      maxlength: [100, 'Person name cannot exceed 100 characters']
+      maxlength: [100, "Person name cannot exceed 100 characters"],
     },
-    twitterHandle: { 
-      type: String, 
-      trim: true 
+    twitterHandle: {
+      type: String,
+      trim: true,
     },
-    datePosted: { 
-      type: Date, 
-      required: false, 
-      index: true 
+    datePosted: {
+      type: Date,
+      required: false,
+      index: true,
     },
-    context: { 
-      type: String 
+    context: {
+      type: String,
     },
   },
   {

@@ -1,20 +1,11 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
-import { Badge } from "@/components/ui/badge";
-import { ScrollArea } from "@/components/ui/scroll-area";
 import { ITweet } from '@/models/Tweet';
-import { format } from 'date-fns';
-import { Calendar, Link, MessageCircle, RefreshCcw } from 'lucide-react';
-import LierTweet from '@/components/LierTweet';
-
-declare global {
-    interface Window {
-        twttr: any;
-    }
-}
+import { RefreshCcw } from 'lucide-react';
+import LierTweetsList from './LierTweetsList';
 
 export default function TweetList() {
     const [tweets, setTweets] = useState<ITweet[]>([]);
@@ -46,41 +37,13 @@ export default function TweetList() {
         fetchTweets();
     }, []);
 
-    useEffect(() => {
-        const existingScript = document.querySelector('script[src="https://platform.twitter.com/widgets.js"]');
-        if (existingScript) {
-            document.body.removeChild(existingScript);
-        }
-
-        const script = document.createElement("script");
-        script.src = "https://platform.twitter.com/widgets.js";
-        script.async = true;
-        script.onload = () => {
-            if (window.twttr) {
-                window.twttr.widgets.load();
-            }
-        };
-
-        document.body.appendChild(script);
-
-        return () => {
-            if (script.parentNode) {
-                script.parentNode.removeChild(script);
-            }
-        };
-    }, [tweets]);
-
     if (isLoading) {
         return (
             <div className="max-w-4xl mx-auto space-y-8 p-6">
                 {[1, 2, 3].map((i) => (
                     <Card key={i} className="w-full">
-                        <CardHeader>
-                            <Skeleton className="h-8 w-48" />
-                        </CardHeader>
                         <CardContent>
                             <Skeleton className="h-48 w-full" />
-                            <Skeleton className="h-4 w-32 mt-4" />
                         </CardContent>
                     </Card>
                 ))}
@@ -128,13 +91,7 @@ export default function TweetList() {
                 </button>
             </div>
 
-            <div className="columns-1 sm:columns-2 lg:columns-3 gap-8 [column-fill:_balance]">
-                {tweets.map((tweet) => (
-                    <div key={tweet._id} className="break-inside-avoid mb-8">
-                        <LierTweet tweet={tweet} />
-                    </div>
-                ))}
-            </div>
+            <LierTweetsList tweets={tweets} />
         </div>
     );
 }

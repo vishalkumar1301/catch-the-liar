@@ -27,6 +27,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         {children}
+        <script async src="https://platform.twitter.com/widgets.js"></script>
       </body>
     </html>
   );
