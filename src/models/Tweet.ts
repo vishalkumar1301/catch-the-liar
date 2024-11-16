@@ -9,6 +9,7 @@ export interface ITweet extends Document {
   twitterHandle?: string;
   datePosted?: Date;
   context?: string;
+  isActive: boolean;
   createdAt: Date;
   updatedAt: Date;
 }
@@ -43,6 +44,11 @@ const TweetSchema: Schema = new Schema(
     },
     context: {
       type: String,
+    },
+    isActive: {
+      type: Boolean,
+      default: false,
+      required: true,
     },
   },
   {
