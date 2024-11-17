@@ -15,10 +15,10 @@ export default function Header() {
 							<Home className="h-8 w-8 text-blue-500" aria-hidden="true" />
 							<span className="sr-only">Home</span>
 						</Link>
-						<h1 className="ml-4 text-xl font-bold text-gray-900 dark:text-white">Catch the liars</h1>
+						<h1 className="ml-4 text-sm md:text-xl font-bold text-gray-900 dark:text-white">Catch the liars</h1>
 					</div>
 					<div className="flex items-center space-x-4">
-						<div className="hidden md:block w-64">
+						<div>
 							<TweetSearch />
 						</div>
 						<nav className="flex space-x-2">
@@ -28,12 +28,12 @@ export default function Header() {
 									Add a liar
 								</Button>
 							</Link> */}
-							<Link href="/lies">
+							{/* <Link href="/lies">
 								<Button variant="ghost" size="sm" className="text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700">
 									<List className="mr-2 h-4 w-4" aria-hidden="true" />
 									All Lies
 								</Button>
-							</Link>
+							</Link> */}
 						</nav>
 					</div>
 				</div>

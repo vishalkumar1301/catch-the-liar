@@ -82,7 +82,7 @@ export default function PersonNameSearch({
         onChange={(e) => handleSearch(e.target.value)}
         placeholder={placeholder}
         required={required}
-        className={className}
+        className={className + " text-sm md:text-md"}
         onFocus={() => suggestions.length > 0 && setShowSuggestions(true)}
       />
       
