@@ -12,7 +12,7 @@ export async function GET(request: Request) {
     const tweets = await Tweet.find({ 
       personName: decodedName,
       isActive: true 
-    }).sort({ datePosted: -1 });
+    }).sort({ createdAt: -1 });
     
     return NextResponse.json(tweets, { status: 200 });
   } catch (error: unknown) {
