@@ -5,7 +5,7 @@ import Tweet from '@/models/Tweet';
 export async function GET() {
   await dbConnect();
   try {
-    const tweets = await Tweet.find({});
+    const tweets = await Tweet.find({ isActive: true });
     return NextResponse.json(tweets, { status: 200 });
   } catch (error: unknown) {
     console.error('Error fetching tweets:', error);

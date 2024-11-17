@@ -10,7 +10,8 @@ export async function GET(request: Request) {
     const decodedName = decodeURIComponent(encodedName);
     
     const tweets = await Tweet.find({ 
-      personName: decodedName 
+      personName: decodedName,
+      isActive: true 
     }).sort({ datePosted: -1 });
     
     return NextResponse.json(tweets, { status: 200 });

@@ -63,7 +63,7 @@ export default function PersonTweetsPage() {
     <div className="container mx-auto py-8 space-y-8">
       <div className="flex justify-between items-center">
         <h1 className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
-          Lies Exposing {personName}
+          Lies Surrounding {personName}
         </h1>
       </div>
       <LierTweetsList tweets={tweets} />

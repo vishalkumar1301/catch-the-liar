@@ -69,7 +69,7 @@ export default function AllTweetsList() {
             <div className="max-w-4xl mx-auto p-6">
                 <Card className="border-gray-200 bg-gray-50">
                     <CardContent className="flex items-center justify-center p-6">
-                        <p className="text-gray-500">No tweets found.</p>
+                        <p className="text-gray-500">No Lies found.</p>
                     </CardContent>
                 </Card>
             </div>
@@ -79,9 +79,6 @@ export default function AllTweetsList() {
     return (
         <div className="max-w-8xl mx-auto p-6 space-y-8">
             <div className="flex justify-between items-center mb-8">
-                <h2 className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
-                    Saved Tweets
-                </h2>
                 <button
                     onClick={fetchTweets}
                     disabled={isRefreshing}

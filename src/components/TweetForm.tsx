@@ -177,7 +177,7 @@ export default function TweetForm() {
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="context">Context</Label>
+            <Label htmlFor="context">Can you explain the lie here?</Label>
             <Textarea
               id="context"
               name="context"

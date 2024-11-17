@@ -24,7 +24,7 @@ export default function LierTweet({ tweet }: LierTweetProps) {
 						{tweet.twitterHandle && (
 							<div className="flex items-center gap-2">
 								<Badge variant="secondary" className="text-blue-600">
-									@{tweet.twitterHandle}
+									{tweet.twitterHandle}
 								</Badge>
 							</div>
 						)}

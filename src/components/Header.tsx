@@ -22,12 +22,12 @@ export default function Header() {
 							<TweetSearch />
 						</div>
 						<nav className="flex space-x-2">
-							<Link href="/submit">
+							{/* <Link href="/submit">
 								<Button variant="ghost" size="sm" className="text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700">
 									<PlusCircle className="mr-2 h-4 w-4" aria-hidden="true" />
 									Add a liar
 								</Button>
-							</Link>
+							</Link> */}
 							<Link href="/lies">
 								<Button variant="ghost" size="sm" className="text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700">
 									<List className="mr-2 h-4 w-4" aria-hidden="true" />

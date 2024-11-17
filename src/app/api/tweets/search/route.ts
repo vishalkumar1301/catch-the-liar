@@ -13,7 +13,8 @@ export async function GET(request: Request) {
     }
 
     const uniqueNames = await Tweet.distinct('personName', {
-      personName: { $regex: term, $options: 'i' }
+      personName: { $regex: term, $options: 'i' },
+      isActive: true
     });
 
     return NextResponse.json(uniqueNames, { status: 200 });
