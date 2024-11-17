@@ -14,11 +14,11 @@ export default function LierTweet({ tweet }: LierTweetProps) {
 	};
 
 	return (
-		<Card className="w-full max-w-xl transform transition-all duration-300 hover:shadow-lg">
+		<Card className="w-full transform transition-all duration-300 hover:shadow-lg">
 			<CardHeader className="border-b bg-gray-50/50">
-				<div className="flex justify-between items-start">
+				<div className="flex justify-between items-start flex-wrap">
 					<div className="space-y-1">
-						<CardTitle className="text-xl font-bold">
+						<CardTitle className="text-md font-bold">
 							{tweet.personName}
 						</CardTitle>
 						{tweet.twitterHandle && (

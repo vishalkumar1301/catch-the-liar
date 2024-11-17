@@ -78,7 +78,6 @@ export default function AllTweetsList() {
 
     return (
         <div className="max-w-8xl mx-auto p-6 space-y-8">
-
             <LierTweetsList tweets={tweets} />
         </div>
     );

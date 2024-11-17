@@ -2,11 +2,11 @@ import { useEffect } from 'react';
 import { ITweet } from '@/models/Tweet';
 import LierTweet from './LierTweet';
 import useTwitterWidgets from '@/hooks/useTwitterWidgets';
+import styles from './LierTweetsList.module.css';
 
 interface LierTweetsListProps {
   tweets: ITweet[];
 }
-
 
 export default function LierTweetsList({ tweets }: LierTweetsListProps) {
   useTwitterWidgets();
@@ -22,9 +22,9 @@ export default function LierTweetsList({ tweets }: LierTweetsListProps) {
   }
 
   return (
-    <div className="columns-1 sm:columns-2 lg:columns-3 gap-8 [column-fill:_balance]">
+    <div className={styles.tweetsGrid}>
       {tweets.map((tweet) => (
-        <div key={tweet._id} className="break-inside-avoid mb-8">
+        <div key={tweet._id} className="break-inside-avoid">
           <LierTweet tweet={tweet} />
         </div>
       ))}
