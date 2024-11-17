@@ -78,16 +78,6 @@ export default function AllTweetsList() {
 
     return (
         <div className="max-w-8xl mx-auto p-6 space-y-8">
-            <div className="flex justify-between items-center mb-8">
-                <button
-                    onClick={fetchTweets}
-                    disabled={isRefreshing}
-                    className="flex items-center gap-2 px-4 py-2 rounded-lg bg-blue-50 text-blue-600 hover:bg-blue-100 transition-colors disabled:opacity-50"
-                >
-                    <RefreshCcw className={`h-4 w-4 ${isRefreshing ? 'animate-spin' : ''}`} />
-                    Refresh
-                </button>
-            </div>
 
             <LierTweetsList tweets={tweets} />
         </div>
