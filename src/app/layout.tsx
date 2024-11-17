@@ -20,7 +20,9 @@ export default function RootLayout({
       <body className={inter.className}>
         <div className="min-h-screen bg-gray-100 dark:bg-gray-900">
           <Header />
-          {children}
+          <div className="container px-4 mx-auto">
+            {children}
+          </div>
         </div>
       </body>
     </html>
