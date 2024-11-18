@@ -34,7 +34,7 @@ export default function Header() {
 									All Lies
 								</Button>
 							</Link> */}
-						</nav>
+						</nav >
 					</div>
 				</div>
 			</div>

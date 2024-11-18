@@ -1,9 +1,10 @@
-import LiesOfTheDay from '@/components/LiesOfTheDay';
+import AllTweetsList from '@/components/AllTweetsList';
 
 export default function Home() {
   return (
     <div className="container mx-auto">
-      <LiesOfTheDay />
+      {/* <LiesOfTheDay /> */}
+      <AllTweetsList />
     </div>
   );
 }
